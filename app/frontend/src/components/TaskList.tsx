@@ -5,7 +5,7 @@ interface ITaskProps {
   task: ITask;
 }
 
-const Task = ({ task }: ITaskProps) => {
+const TaskList = ({ task }: ITaskProps) => {
   return (
     <div className="task">
       <div className="content">
@@ -17,4 +17,4 @@ const Task = ({ task }: ITaskProps) => {
   )
 }
 
-export default Task;
+export default TaskList;

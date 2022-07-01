@@ -10,6 +10,9 @@ const Task: React.FC = () => {
       </section>
       <button type="button" onClick={() =>{}}>Adicionar tarefa</button>
       </div>  
+      <div className="task-list">
+        
+      </div>
     </>
   );
 };
