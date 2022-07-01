@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Switch }
+import {BrowserRouter, Routes } from 'react-router-dom';
 
 export interface IAppProps {}
 
@@ -7,9 +7,9 @@ const App: React.FC<IAppProps> = (props) => {
   return (
     <>
       <BrowserRouter>
-          <Switch>
+          <Routes>
 
-          </Switch>
+          </Routes>
       </BrowserRouter>
     </>
   );
