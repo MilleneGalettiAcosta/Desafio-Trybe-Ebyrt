@@ -1,8 +1,6 @@
 import React from 'react';
 
-interface ITaskProps {}
-
-const Task: React.FC<ITaskProps> = () => {
+const Task: React.FC = () => {
   return (
     <>
     <div className="task-container">
