@@ -15,6 +15,13 @@ const Task: React.FC = () => {
     }
   }
 
+  const AddTask = ():void => {
+    const newTask = {taskName:task, deadline: deadline};
+    setTaskList([...tasklist, newTask]);
+    setTask("");
+    setDeadline(0);
+  }
+
   return (
     <>
     <div className="task-container">
@@ -22,10 +29,12 @@ const Task: React.FC = () => {
         <input type="text" placeholder="Tarefas..." name="task" value={ task } onChange={handleChange}/>
         <input type="number" placeholder="Prazo(em dias)..." name="deadline" value={ deadline } onChange={handleChange}/>
       </section>
-      <button type="button" onClick={() =>{}}>Adicionar tarefa</button>
-      </div>  
+      <button type="button" onClick={AddTask}>Adicionar tarefa</button>
+       
       <div className="task-list">
+        
       </div>
+    </div>   
     </>
   );
 };
