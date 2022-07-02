@@ -23,6 +23,12 @@ const Task: React.FC = () => {
     setDeadline(0);
   }
 
+  const completeTask = (taskToDelete: string):void => {
+    setTaskList(tasklist.filter((task) => {
+      return task.taskName !== taskToDelete;
+    }));
+  }
+
   return (
     <>
     <div className="task-container">
@@ -34,7 +40,7 @@ const Task: React.FC = () => {
        
       <div className="task-list">
         {tasklist.map((task: ITask, key: number) => {
-          return <TaskList key={key} task={task} />
+          return <TaskList key={key} task={task} completeTask={completeTask}/>
         })}
       </div>
     </div>   
