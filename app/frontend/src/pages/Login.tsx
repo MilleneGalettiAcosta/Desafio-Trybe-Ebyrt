@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import Header from '../components/Header';
 import { REGEX_EMAIL, SIX } from '../helpers/constants';
 import UseLocalStorage from '../hooks/UseLocalStorage';
@@ -9,6 +10,7 @@ const Login: React.FC<ILoginProps> = () => {
 
   const [email, setEmail] = UseLocalStorage('email', '');
   const [password, setPassword] = UseLocalStorage('password', '');
+  const [isLogged, setIsLogged] = useState(false);
 
   const validated = REGEX_EMAIL.test(email) && password.length > SIX;
 
@@ -22,7 +24,10 @@ const Login: React.FC<ILoginProps> = () => {
 
   const login = async (event: any):Promise<void> => {
     event.preventDefault();
+    setIsLogged(true);
   }
+
+  if (isLogged) return <Navigate to="/task" />;
 
   return (
     <>
