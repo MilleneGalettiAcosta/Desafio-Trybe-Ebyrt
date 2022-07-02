@@ -1,13 +1,14 @@
 import React from 'react';
+import Header from '../components/Header';
 
 interface ILoginProps {}
 
 const Login: React.FC<ILoginProps> = () => {
   return (
     <>
+    <Header page={'Login'} />
       <section className="user-login-area">
         <form>
-          <h1>Login</h1>
           <label htmlFor="email-input">
             <input
               className="email_input"
