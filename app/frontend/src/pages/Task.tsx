@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
+import Header from '../components/Header';
 import TaskList from '../components/TaskList';
 import { ITask } from '../interfaces/Task.interface';
 
@@ -31,6 +32,7 @@ const Task: React.FC = () => {
 
   return (
     <>
+    <Header page={'Lista de Tarefas'} />
     <div className="task-container">
       <section className="task-input">
         <input type="text" placeholder="Tarefas..." name="task" value={ task } onChange={handleChange}/>
