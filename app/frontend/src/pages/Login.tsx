@@ -16,6 +16,10 @@ const Login: React.FC<ILoginProps> = () => {
     }
   }
 
+  const login = async (event: any):Promise<void> => {
+    event.preventDefault();
+  }
+
   return (
     <>
     <Header page={'Login'} />
@@ -43,7 +47,7 @@ const Login: React.FC<ILoginProps> = () => {
         
           <button
             type="submit"
-            onClick={ () => {} }
+            onClick={ (event) => login(event) }
           >
             Entrar
           </button>
