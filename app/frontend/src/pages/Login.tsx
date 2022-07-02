@@ -10,7 +10,7 @@ const Login: React.FC<ILoginProps> = () => {
 
   const [email, setEmail] = UseLocalStorage('email', '');
   const [password, setPassword] = UseLocalStorage('password', '');
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged, setIsLogged] = useState<boolean>(false);
 
   const validated = REGEX_EMAIL.test(email) && password.length > SIX;
 
