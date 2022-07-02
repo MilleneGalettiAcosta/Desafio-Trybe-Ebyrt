@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import Header from '../components/Header';
 
 interface ILoginProps {}
 
 const Login: React.FC<ILoginProps> = () => {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>):void => {
+    if (event.target.name === "email") {
+      setEmail(event.target.value)
+    } else {
+      setPassword(event.target.value);
+    }
+  }
+
   return (
     <>
     <Header page={'Login'} />
@@ -13,16 +25,17 @@ const Login: React.FC<ILoginProps> = () => {
             <input
               className="email_input"
               type="email"
-              value="email"
-              onChange={ () => {}}
+              name="email"
+              value={ email }
+              onChange={ handleChange }
               placeholder="Email"
             />
           </label>
           <label htmlFor="password-input">
             <input
               type="password"
-              value="senha"
-              onChange={ () => {}}
+              value={ password }
+              onChange={ handleChange }
               placeholder="Senha"
             />
           </label>
