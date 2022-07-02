@@ -22,13 +22,11 @@ const Login: React.FC<ILoginProps> = () => {
               type="password"
               value="senha"
               onChange={ () => {}}
-              data-testid="password_input"
               placeholder="Senha"
             />
           </label>
         
           <button
-            data-testid="login__login_btn"
             type="submit"
             onClick={ () => {} }
           >
