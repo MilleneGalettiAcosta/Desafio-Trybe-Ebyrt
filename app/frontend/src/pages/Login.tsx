@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useState } from 'react';
 import Header from '../components/Header';
+import { REGEX_EMAIL, SIX } from '../helpers/constants';
 import UseLocalStorage from '../hooks/UseLocalStorage';
 
 interface ILoginProps {}
@@ -8,6 +9,8 @@ const Login: React.FC<ILoginProps> = () => {
 
   const [email, setEmail] = UseLocalStorage('email', '');
   const [password, setPassword] = UseLocalStorage('password', '');
+
+  const validated = REGEX_EMAIL.test(email) && password.length > SIX;
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>):void => {
     if (event.target.name === "email") {
@@ -47,7 +50,8 @@ const Login: React.FC<ILoginProps> = () => {
           </label>
         
           <button
-            type="submit"
+            type="button"
+            disabled={ !validated }
             onClick={ (event) => login(event) }
           >
             Entrar
