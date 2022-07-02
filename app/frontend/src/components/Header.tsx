@@ -1,14 +1,16 @@
 import React from 'react';
 
-interface IHeaderProps {}
+interface IHeaderProps {
+  page: string;
+}
 
-const Header: React.FC<IHeaderProps> = () => {
+const Header: React.FC<IHeaderProps> = ({ page}: IHeaderProps) => {
   return (
     <header className="header">
       <div>
         <img src="../images/cubo.jpg" alt="cubo verde" />
       </div>
-      <h1>Lista de Tarefas</h1>
+      <h1>{ page }</h1>
       <button
             type="button"
             onClick={ () => {} }
