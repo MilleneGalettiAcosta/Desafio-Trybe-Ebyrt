@@ -1,12 +1,13 @@
 import React, { ChangeEvent, useState } from 'react';
 import Header from '../components/Header';
+import UseLocalStorage from '../hooks/UseLocalStorage';
 
 interface ILoginProps {}
 
 const Login: React.FC<ILoginProps> = () => {
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = UseLocalStorage('email', '');
+  const [password, setPassword] = UseLocalStorage('password', '');
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>):void => {
     if (event.target.name === "email") {
