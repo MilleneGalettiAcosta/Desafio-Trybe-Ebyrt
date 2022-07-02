@@ -34,7 +34,7 @@ const Task: React.FC = () => {
        
       <div className="task-list">
         {tasklist.map((task: ITask, key: number) => {
-          return <TaskList key={key} task={task} />
+          return <TaskList key={key} task={task} completeTask={() => {}}/>
         })}
       </div>
     </div>   
