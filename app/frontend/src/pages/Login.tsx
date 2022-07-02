@@ -21,6 +21,7 @@ const Login: React.FC<ILoginProps> = () => {
     <Header page={'Login'} />
       <section className="user-login-area">
         <form>
+          <h2>Fazer login para prosseguir para a Lista de Tarefas</h2>
           <label htmlFor="email-input">
             <input
               className="email_input"
