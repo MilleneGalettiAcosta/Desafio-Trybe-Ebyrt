@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { exit , cube } from '../images/index';
 
 interface IHeaderProps {
@@ -6,6 +7,14 @@ interface IHeaderProps {
 }
 
 const Header: React.FC<IHeaderProps> = ({ page}: IHeaderProps) => {
+
+  const navigate = useNavigate();
+
+  const logout = ():void => {
+    localStorage.clear();
+    navigate("/");
+  }
+
   return (
     <header className="header">
       <div>
@@ -14,7 +23,7 @@ const Header: React.FC<IHeaderProps> = ({ page}: IHeaderProps) => {
       <h1>{ page }</h1>
       <button
             type="button"
-            onClick={ () => {} }
+            onClick={ () => logout() }
           >
             Sair
             <img src={ exit } alt="Sair do aplicativo"/>
