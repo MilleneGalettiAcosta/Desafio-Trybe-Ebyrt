@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "db:reset": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create"
+  },
   "dependencies": {
     "@types/sequelize": "^4.28.13",
     "dotenv": "^16.0.1",
