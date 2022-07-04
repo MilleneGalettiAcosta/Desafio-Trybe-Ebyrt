@@ -1,5 +1,7 @@
-import express from 'express';
+import  express from 'express';
 import cors from 'cors';
+
+import router from './routes/index';
 
 class App {
   public app: express.Express;
@@ -7,6 +9,8 @@ class App {
   constructor() {
     this.app = express();
     this.config();
+    this.cors();
+    this.router();
   }
 
   private config():void {
@@ -17,15 +21,19 @@ class App {
       next();
     };
 
-    this.app.use(cors());
+    this.app.use(accessControl);
 
     this.app.use(express.json());
 
-    this.app.use(accessControl);
+    }
 
-    // this.app.use(Rotas); Importação das rotas criadas
+    private router(): void {
+      this.app.use(router);
+    }
 
-  }
+    private cors(): void {
+      this.app.use(cors());
+    }
 
   public start(PORT: string | number):void {
     this.app.listen(PORT, () => console.log(`listening on port ${PORT}`));
