@@ -8,7 +8,7 @@ import db from '.';
  }
 
  userModel.init({
-    id: DataTypes.NUMBER,
+    id: DataTypes.INTEGER,
     email: DataTypes.STRING,
     password: DataTypes.STRING
   }, {

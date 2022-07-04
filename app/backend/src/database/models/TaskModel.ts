@@ -8,7 +8,7 @@ import db from '.';
  }
 
  taskModel.init({
-    id: DataTypes.NUMBER,
+    id: DataTypes.INTEGER,
     task: DataTypes.STRING,
     deadline: DataTypes.NUMBER
   }, {
