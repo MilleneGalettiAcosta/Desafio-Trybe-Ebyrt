@@ -1,6 +1,6 @@
 import * as jwt from 'jsonwebtoken';
 import * as fs from 'fs';
-import IToken from '../interfaces/IToken';
+import IToken from '../interfaces/Token';
 
 const secret = fs.readFileSync('jwt.evaluation.key', 'utf-8');
 

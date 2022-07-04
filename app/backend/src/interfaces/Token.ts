@@ -1,7 +1,6 @@
 interface IToken {
   data: {
     id: number;
-    role: string;
   }
 }
 
