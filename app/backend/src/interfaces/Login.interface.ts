@@ -1,6 +1,6 @@
-interface IUser {
+interface ILogin {
     email?: string,
     password?: string,
 }
 
-export default IUser; 
+export default ILogin; 
