@@ -1,15 +1,16 @@
 import React, { ChangeEvent, useState } from 'react';
+import Header from '../components/Header';
 import TaskList from '../components/TaskList';
 import { ITask } from '../interfaces/Task.interface';
 
 const Task: React.FC = () => {
 
-  const [task, setTask] = useState<string>("");
+  const [task, setTask] = useState<string>('');
   const [deadline, setDeadline] = useState<number>(0);
   const [tasklist, setTaskList] = useState<ITask[]>([]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>):void => {
-    if (event.target.name === "task") {
+    if (event.target.name === 'task') {
       setTask(event.target.value)
     } else {
       setDeadline(Number(event.target.value));
@@ -19,7 +20,7 @@ const Task: React.FC = () => {
   const AddTask = ():void => {
     const newTask = {taskName:task, deadline: deadline};
     setTaskList([...tasklist, newTask]);
-    setTask("");
+    setTask('');
     setDeadline(0);
   }
 
@@ -31,6 +32,7 @@ const Task: React.FC = () => {
 
   return (
     <>
+    <Header page={'Lista de Tarefas'} />
     <div className="task-container">
       <section className="task-input">
         <input type="text" placeholder="Tarefas..." name="task" value={ task } onChange={handleChange}/>
