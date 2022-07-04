@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 // ref: https://www.youtube.com/watch?v=ngVU74daJ8Y&ab_channel=Rocketseat
 
-const useLocalStorage = (key:string, initialState: string) => {
+const UseLocalStorage = (key:string, initialState: string) => {
   const [state, setState] = useState(() => {
     const getStorage = localStorage.getItem(key);
     if (getStorage) {
@@ -14,4 +14,4 @@ const useLocalStorage = (key:string, initialState: string) => {
   }, [key, state]);
   return [state, setState];
 };
-export default useLocalStorage;
+export default UseLocalStorage;

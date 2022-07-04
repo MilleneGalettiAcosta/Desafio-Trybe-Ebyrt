@@ -1,12 +1,18 @@
 import React, { ChangeEvent, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import Header from '../components/Header';
+import { REGEX_EMAIL, SIX } from '../helpers/constants';
+import UseLocalStorage from '../hooks/UseLocalStorage';
 
 interface ILoginProps {}
 
 const Login: React.FC<ILoginProps> = () => {
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = UseLocalStorage("email", "");
+  const [password, setPassword] = UseLocalStorage("password", "");
+  const [isLogged, setIsLogged] = useState<boolean>(false);
+
+  const validated = REGEX_EMAIL.test(email) && password.length > SIX;
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>):void => {
     if (event.target.name === "email") {
@@ -16,11 +22,19 @@ const Login: React.FC<ILoginProps> = () => {
     }
   }
 
+  const login = async (event: any):Promise<void> => {
+    event.preventDefault();
+    setIsLogged(true);
+  }
+
+  if (isLogged) return <Navigate to="/task" />;
+
   return (
     <>
-    <Header page={'Login'} />
+    <Header page={"Login"} />
       <section className="user-login-area">
         <form>
+          <h2>Fazer login para prosseguir para a Lista de Tarefas</h2>
           <label htmlFor="email-input">
             <input
               className="email_input"
@@ -41,8 +55,9 @@ const Login: React.FC<ILoginProps> = () => {
           </label>
         
           <button
-            type="submit"
-            onClick={ () => {} }
+            type="button"
+            disabled={ !validated }
+            onClick={ (event) => login(event) }
           >
             Entrar
           </button>
