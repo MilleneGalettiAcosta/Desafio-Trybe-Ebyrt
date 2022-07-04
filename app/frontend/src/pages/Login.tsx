@@ -8,8 +8,8 @@ interface ILoginProps {}
 
 const Login: React.FC<ILoginProps> = () => {
 
-  const [email, setEmail] = UseLocalStorage('email', '');
-  const [password, setPassword] = UseLocalStorage('password', '');
+  const [email, setEmail] = UseLocalStorage("email", "");
+  const [password, setPassword] = UseLocalStorage("password", "");
   const [isLogged, setIsLogged] = useState<boolean>(false);
 
   const validated = REGEX_EMAIL.test(email) && password.length > SIX;
@@ -31,7 +31,7 @@ const Login: React.FC<ILoginProps> = () => {
 
   return (
     <>
-    <Header page={'Login'} />
+    <Header page={"Login"} />
       <section className="user-login-area">
         <form>
           <h2>Fazer login para prosseguir para a Lista de Tarefas</h2>
