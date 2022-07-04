@@ -1,11 +1,11 @@
 import userModel from '../database/models/LoginModel';
-import IUser from '../interfaces/User.interface';
+import ILogin from '../interfaces/Login.interface';
 import ILoginService from './interface/LoginService';
 
-class LoginService implements ILoginService <IUser | null> {
+class LoginService implements ILoginService <ILogin | null> {
   constructor( private models = userModel ) {}
 
-  public login = async (email:string): Promise<IUser | null> => {
+  public login = async (email:string): Promise<ILogin | null> => {
     const user = await userModel.findOne({ where: { email } });
 
     if (!user) return null;
