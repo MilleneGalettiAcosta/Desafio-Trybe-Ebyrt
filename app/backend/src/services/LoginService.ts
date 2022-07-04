@@ -11,7 +11,6 @@ class LoginService implements ILoginService <IUser | null> {
     if (!user) return null;
 
     return {
-      id: user.id,
       email: user.email,
     }
   }
