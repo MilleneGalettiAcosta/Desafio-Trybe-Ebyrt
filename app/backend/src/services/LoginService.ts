@@ -16,3 +16,5 @@ class LoginService implements ILoginService <IUser | null> {
     }
   }
 }
+
+export default new LoginService;
