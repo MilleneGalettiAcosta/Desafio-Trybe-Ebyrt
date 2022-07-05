@@ -11,30 +11,13 @@ class App {
     this.app = express();
     this.config();
     this.cors();
-    this.router();
-    this.error();
   }
 
   private config():void {
-    const accessControl: express.RequestHandler = (_req, res, next) => {
-      res.header('Access-Control-Allow-Origin', '*');
-      res.header('Access-Control-Allow-Methods', 'GET,POST,DELETE,OPTIONS,PUT,PATCH');
-      res.header('Access-Control-Allow-Headers', '*');
-      next();
-    };
-
-    this.app.use(accessControl);
-
     this.app.use(express.json());
+    this.app.use(router);
+    this.app.use(errorHandler);
 
-    }
-
-    private router(): void {
-      this.app.use(router);
-    }
-
-    private error(): void {
-      this.app.use(errorHandler);
     }
 
     private cors(): void {
