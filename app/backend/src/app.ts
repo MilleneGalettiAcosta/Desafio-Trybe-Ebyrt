@@ -5,21 +5,24 @@ import router from './routes/index';
 import errorHandler from './middlewares/ErrorMiddleware';
 
 class App {
-  public app: express.Express;
+  public app: express.Application;
 
   constructor() {
     this.app = express();
     this.config();
     this.cors();
+    this.error();
   }
 
   private config():void {
     this.app.use(express.json());
     this.app.use(router);
-    this.app.use(errorHandler);
-
     }
 
+    private error():void {
+      this.app.use(errorHandler);
+    }
+    
     private cors(): void {
       this.app.use(cors());
     }

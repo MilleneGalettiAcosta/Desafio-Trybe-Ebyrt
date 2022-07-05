@@ -2,7 +2,6 @@ import userModel from '../database/models/LoginModel';
 import ILogin from '../interfaces/Login.interface';
 import ILoginService from './interface/LoginService';
 import crypto from '../auth/Bcrypt';
-import { jwtSign } from '../auth/JWT';
 
 class LoginService implements ILoginService <ILogin | null> {
   constructor( private models = userModel ) {}
@@ -16,16 +15,11 @@ class LoginService implements ILoginService <ILogin | null> {
 
     if (!cryptoPass) return null;
 
-    const token = jwtSign({data: { id: user.id }});
-
     return {
-      user: {
         id: user.id,
         email: user.email,
-      },
-      token,
     };
   };
 }
 
-export default new LoginService;
+export default new LoginService();
