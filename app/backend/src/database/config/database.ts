@@ -2,8 +2,8 @@ import 'dotenv/config';
 import { Options } from 'sequelize';
 
 const config: Options = {
-  username: process.env.DB_USER || 'millene',
-  password: process.env.DB_PASS || '12345678',
+  username: process.env.DB_USER || 'root',
+  password: process.env.DB_PASS || '',
   database: process.env.DB_NAME || 'task_api',
   host: process.env.DB_HOST || 'localhost',
   port: Number(process.env.DB_PORT) || 3306,

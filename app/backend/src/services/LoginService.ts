@@ -20,7 +20,7 @@ class LoginService implements ILoginService <ILogin | null> {
 
     return {
       email: user.email,
-      token: token
+      token,
     }
   }
 }

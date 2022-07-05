@@ -4,9 +4,9 @@ import LoginService from '../services/LoginService';
 class LoginController {
   public  login = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const { email } = req.body;
+      const { email, password } = req.body;
 
-      const user = await LoginService.login(email);
+      const user = await LoginService.login(email, password);
 
       if(!user) return res.status(400).json({message: "Incorrect email"});
 
