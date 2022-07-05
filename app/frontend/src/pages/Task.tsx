@@ -2,6 +2,7 @@ import React, { ChangeEvent, useState } from 'react';
 import Header from '../components/Header';
 import TaskList from '../components/TaskList';
 import { ITask } from '../interfaces/Task.interface';
+import '../styles/Task.css';
 
 const Task: React.FC = () => {
 

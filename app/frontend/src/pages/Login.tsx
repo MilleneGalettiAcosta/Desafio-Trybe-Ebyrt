@@ -3,6 +3,7 @@ import { Navigate } from 'react-router-dom';
 import Header from '../components/Header';
 import { REGEX_EMAIL, SIX } from '../helpers/constants';
 import UseLocalStorage from '../hooks/UseLocalStorage';
+import '../styles/Login.css';
 
 interface ILoginProps {}
 
