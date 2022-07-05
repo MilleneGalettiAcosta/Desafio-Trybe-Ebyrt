@@ -2,35 +2,27 @@ import  express from 'express';
 import cors from 'cors';
 
 import router from './routes/index';
+import errorHandler from './middlewares/ErrorMiddleware';
 
 class App {
-  public app: express.Express;
+  public app: express.Application;
 
   constructor() {
     this.app = express();
     this.config();
     this.cors();
-    this.router();
+    this.error();
   }
 
   private config():void {
-    const accessControl: express.RequestHandler = (_req, res, next) => {
-      res.header('Access-Control-Allow-Origin', '*');
-      res.header('Access-Control-Allow-Methods', 'GET,POST,DELETE,OPTIONS,PUT,PATCH');
-      res.header('Access-Control-Allow-Headers', '*');
-      next();
-    };
-
-    this.app.use(accessControl);
-
     this.app.use(express.json());
-
+    this.app.use(router);
     }
 
-    private router(): void {
-      this.app.use(router);
+    private error():void {
+      this.app.use(errorHandler);
     }
-
+    
     private cors(): void {
       this.app.use(cors());
     }
