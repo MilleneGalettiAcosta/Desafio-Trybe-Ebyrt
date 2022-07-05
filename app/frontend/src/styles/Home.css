@@ -1,13 +1,12 @@
-.header {
+body {
+  background-color: #000;
+}
+
+.home-container {
   align-items: center;
-  background: #000;
-  bottom: 2.33%;
+  background-color: #000;
   display: flex;
-  justify-content: space-between;
-  left: 0%;
-  padding: 20px 50px;
-  right: 0%;
-  top: -2.33%;
+  justify-content: center;
 }
 
 .logo {
@@ -21,31 +20,30 @@
   width: 130px;
 }
 
-.header h1 {
+.home-container h1 {
   align-items: center;
   color: white;
   display: flex;
   flex-grow: 2;
   font-family: Verdana , Tahoma , sans-serif;
-  font-size: 30px;
+  font-size: 100px;
   font-style: normal;
   justify-content: center;
   line-height: 36px;
   text-align: center;
 }
 
-.header h3 {
-  color:white;
-  margin-left: 45px;
+.home-container h2 {
+  color: white;
+  font-family: Verdana , Tahoma , sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  justify-content: center;
+  line-height: 36px;
+  text-align: center;
 }
 
-.btn {
-  align-items: center;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.btn {
+.home-container a {
   align-items: center;
   background: none;
   border: none;
@@ -53,13 +51,16 @@
   cursor: pointer;
   display: flex;
   font-family: Verdana , Tahoma , sans-serif;
-  font-size: 16px;
+  font-size: 35px;
   font-style: normal;
   line-height: 19px;
   margin-left: 10px;
+  border: 2px solid white;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-.header div button img {
+.home-container div button img {
   height: 24px;
   margin-left: 5px;
   width: 24px;
