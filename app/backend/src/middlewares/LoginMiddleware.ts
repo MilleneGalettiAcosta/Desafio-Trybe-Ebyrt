@@ -1,19 +1,19 @@
 import { NextFunction, Request, Response } from 'express';
 import Joi from 'joi';
-import ILogin  from '../interfaces/Login.interface';
 
-export default class LoginMiddleware {
-  static validateLogin(req: Request, _res:Response, next: NextFunction) {
+const loginSchema = Joi.object({
+  email: Joi.string().email().empty().required(),
+  password: Joi.string().min(6).empty().required(),
+});
 
-      const { email, password } = req.body as ILogin;
+const validateLogin = (req: Request, _res: Response, next: NextFunction) => {
+  const { email, password } = req.body;
 
-      const { error } = Joi.object({
-        email: Joi.string().email().required(),
-        password: Joi.string().min(6).required(),
-      }).validate({ email, password });
+  const { error } = loginSchema.validate({ email, password});
 
-      if (error) throw error;
+  if (error) throw error;
 
-      return next(error);
-    }
-  }
+  return next();
+};
+
+export default validateLogin; 

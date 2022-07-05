@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
+import { StatusCodes } from 'http-status-codes'; 
 import LoginService from '../services/LoginService';
 
 class LoginController {
@@ -8,9 +9,9 @@ class LoginController {
 
       const user = await LoginService.login(email, password);
 
-      if(!user) return res.status(400).json({message: "Incorrect email"});
+      if(!user) return res.status(StatusCodes.BAD_REQUEST).json({message: "All fields must be filled"});
 
-      return res.status(200).json(user);
+      return res.status(StatusCodes.OK).json(user);
     } catch (error) {
       next(error);
     }

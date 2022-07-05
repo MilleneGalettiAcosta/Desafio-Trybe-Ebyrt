@@ -19,10 +19,13 @@ class LoginService implements ILoginService <ILogin | null> {
     const token = jwtSign({data: { id: user.id }});
 
     return {
-      email: user.email,
+      user: {
+        id: user.id,
+        email: user.email,
+      },
       token,
-    }
-  }
+    };
+  };
 }
 
 export default new LoginService;

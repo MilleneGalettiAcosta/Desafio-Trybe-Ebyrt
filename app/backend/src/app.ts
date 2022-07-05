@@ -2,6 +2,7 @@ import  express from 'express';
 import cors from 'cors';
 
 import router from './routes/index';
+import errorHandler from './middlewares/ErrorMiddleware';
 
 class App {
   public app: express.Express;
@@ -29,6 +30,10 @@ class App {
 
     private router(): void {
       this.app.use(router);
+    }
+
+    private error(): void {
+      this.app.use(errorHandler);
     }
 
     private cors(): void {

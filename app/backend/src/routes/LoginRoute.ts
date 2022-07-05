@@ -1,10 +1,10 @@
-import { Router } from 'express';
+import * as express from 'express';
 import LoginController from '../controllers/LoginController';
-import LoginMiddleware from '../middlewares/LoginMiddleware';
+import validateLogin from '../middlewares/LoginMiddleware';
 
-const router = Router();
+const loginRouter = express.Router();
 
 // router.get('/');
-router.post('/', LoginMiddleware.validateLogin, LoginController.login);
+loginRouter.post('/', validateLogin, LoginController.login);
 
-export default router;
+export default loginRouter;

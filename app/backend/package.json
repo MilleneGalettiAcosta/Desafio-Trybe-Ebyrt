@@ -15,7 +15,8 @@
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
     "node": "^18.4.0",
-    "sequelize": "^6.21.2"
+    "sequelize": "^6.21.2",
+    "ts-http-status-codes": "^1.0.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
