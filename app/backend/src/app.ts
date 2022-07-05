@@ -12,6 +12,7 @@ class App {
     this.config();
     this.cors();
     this.router();
+    this.error();
   }
 
   private config():void {
